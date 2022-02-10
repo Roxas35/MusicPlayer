@@ -564,10 +564,10 @@ let All_song = [
 
 ];
 
-// All functions
+// Voici toute les fonctions
 
 
-// function load the track
+// Chargement de la musique
 function load_track(index_no){
 	clearInterval(timer);
 	reset_slider();
@@ -586,7 +586,7 @@ function load_track(index_no){
 load_track(index_no);
 
 
-//mute sound function
+//Fonction de mutage de son
 function mute_sound(){
 	track.volume = 0;
 	volume.value = 0;
@@ -594,7 +594,7 @@ function mute_sound(){
 }
 
 
-// checking.. the song is playing or not
+// Fonction de voir si la musique est jouer
  function justplay(){
  	if(Playing_song==false){
  		playsong();
@@ -605,19 +605,19 @@ function mute_sound(){
  }
 
 
-// reset song slider
+// fonction de la remise à 0 de la barre de temps
  function reset_slider(){
  	slider.value = 0;
  }
 
-// play song
+// Fonction de lancer la musique
 function playsong(){
   track.play();
   Playing_song = true;
   play.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
 }
 
-//pause song
+//Fonction de pause de la musique
 function pausesong(){
 	track.pause();
 	Playing_song = false;
@@ -625,7 +625,7 @@ function pausesong(){
 }
 
 
-// next song
+// Fonction de la prochaine musique
 function next_song(){
 	if(index_no < All_song.length - 1){
 		index_no += 1;
@@ -640,7 +640,7 @@ function next_song(){
 }
 
 
-// previous song
+// Fonction de la précedente musique
 function previous_song(){
 	if(index_no > 0){
 		index_no -= 1;
@@ -655,19 +655,19 @@ function previous_song(){
 }
 
 
-// change volume
+// Fonction du volume
 function volume_change(){
 	volume_show.innerHTML = recent_volume.value;
 	track.volume = recent_volume.value / 100;
 }
 
-// change slider position 
+// Fonction du mouvement de la barre 
 function change_duration(){
 	slider_position = track.duration * (slider.value / 100);
 	track.currentTime = slider_position;
 }
 
-// autoplay function
+// Fonction de l'auto play
 function autoplay_switch(){
 	if (autoplay==1){
        autoplay = 0;
@@ -682,14 +682,14 @@ function autoplay_switch(){
 function range_slider(){
 	let position = 0;
         
-        // update slider position
+        // Fonction de la barre d'avancement quand la musique est jouer
 		if(!isNaN(track.duration)){
 		   position = track.currentTime * (100 / track.duration);
 		   slider.value =  position;
 	      }
 
        
-       // function will run when the song is over
+       // Fonction quand le musique est fini
        if(track.ended){
        	 play.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
            if(autoplay==1){
